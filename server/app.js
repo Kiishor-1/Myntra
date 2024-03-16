@@ -1,15 +1,32 @@
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
-const db = require('./config/database');
+require('dotenv').config();
+const cookieParser = require('cookie-parser');
+const {connect} = require('./config/database');
+const cors = require('cors');
+const userRoutes = require('./routes/User');
 
-db.main().then(()=>{
-    console.log("DB connection success");
-}).catch(err=>{
-    console.log("Error while db connection", err);
+connect();
+app.use(express.json());
+app.use(cookieParser());
+app.use(
+	cors({
+		origin:"http://localhost:3000",
+		credentials:true,
+	})
+)
+app.use(express.urlencoded({extended:true}));
+
+
+app.get("/", (req, res)=>{
+    res.send("Standard root");
 });
 
-const PORT = process.env.PORT || 4000;
+app.use("/api/v1/auth", userRoutes);
+
+
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, (req, res)=>{
-    console.log(`Server is up at port ${PORT}`);
+    console.log(`Server is up and running at ${PORT}`);
 })

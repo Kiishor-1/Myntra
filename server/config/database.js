@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-const mongoURL = process.env.ATLAS_DB || "mongodb://127.0.0.1:27017/Myntra";
-
-exports.main =async ()=>{
-    await mongoose.connect(mongoURL);
+exports.connect =  async()=>{
+    await mongoose.connect(process.env.MONGO_URL)
+    .then(console.log("DB connection success"))
+    .catch((err)=>{
+        console.log(err);
+    })
 }
