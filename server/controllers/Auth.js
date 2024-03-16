@@ -87,6 +87,7 @@ exports.signUp = async (req, res) => {
             })
         }
 
+
         const encryptedPassword = await bcrypt.hash(password, 10);
 
         let approved = "";
@@ -100,7 +101,6 @@ exports.signUp = async (req, res) => {
             alternatePhone: null,
             address: null,
         });
-
 
         const user = await User.create({
             firstName,
