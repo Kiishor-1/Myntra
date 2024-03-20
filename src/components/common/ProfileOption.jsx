@@ -1,20 +1,20 @@
 import React from 'react'
 
 export default function ProfileOption() {
-    const myntra_ele = [
-        'Orders',
-        'Wishlist',
-        'Gift Cards',
-        'Contact Us',
-        'Myntra Insider',
-    ];
-    const myntra_services = [
-        'Myntra Credit',
-        'Coupons',
-        'Saved Cards',
-        'Saved VPA',
-        'Saved Addresses'
-    ]
+  const myntra_ele = [
+    'Orders',
+    'Wishlist',
+    'Gift Cards',
+    'Contact Us',
+    'Myntra Insider',
+  ];
+  const myntra_services = [
+    'Myntra Credit',
+    'Coupons',
+    'Saved Cards',
+    'Saved VPA',
+    'Saved Addresses'
+  ]
   return (
     <div className='px-4 py-3 text-[14.5px] absolute border-2 right-[2rem] top-[5.1rem] hidden group-hover:block shadow-md h-[65vh] w-[20vw] bg-white'>
       <div className="">
@@ -25,17 +25,17 @@ export default function ProfileOption() {
       <hr />
       <ul className="leading-4 py-3">
         {
-            myntra_ele.map((item, id)=>(
-                <li className='leading-6 font-normal' key={id}>{item}{item === 'Myntra Insider' && <i className='bg-red-600 text-white px-1 text-[12px] ml-1'>New</i>}</li>
-            ))
+          myntra_ele.map((item, id) => (
+            <li className='leading-6 font-normal' key={id}>{item}{item === 'Myntra Insider' && <i className='bg-red-600 text-white px-1 text-[12px] ml-1'>New</i>}</li>
+          ))
         }
       </ul>
       <hr />
       <ul className="leading-4 py-3">
         {
-            myntra_services.map((item, id)=>(
-                <li className='leading-6 font-normal' key={id}>{item}</li>
-            ))
+          myntra_services.map((item, id) => (
+            <li className='leading-6 font-normal' key={id}>{item}</li>
+          ))
         }
       </ul>
     </div>
