@@ -1,0 +1,74 @@
+#carousel {
+    position: relative;
+    /* width: 80%;
+    height: 70vh;
+    margin: auto; */
+    overflow: hidden;
+    z-index: -1 !important;
+    margin-top: -3px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+.slide-container {
+    overflow: hidden;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+button:first-child {
+    left: 0;
+    /* z-index: 30; */
+}
+
+button:last-child {
+    right: 0;
+
+}
+
+.pagination {
+    /* position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 2rem;
+}
+
+.pagination-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.pagination-dot.active {
+    background-color: #333;
+    width: 1.5rem;
+    border-radius: 1rem;
+}
