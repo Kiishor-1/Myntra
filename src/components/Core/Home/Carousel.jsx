@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import './Carousel.css';
-import img1 from '../../assets/images/s1.png'
-import img2 from '../../assets/images/s2.png'
-import img3 from '../../assets/images/s3.png'
-import img4 from '../../assets/images/s4.png'
+import img1 from '../../../assets/images/s1.png'
+import img2 from '../../../assets/images/s2.png'
+import img3 from '../../../assets/images/s3.png'
+import img4 from '../../../assets/images/s4.png'
 
 
 const Carousel = () => {
     const images = [img1, img2, img3, img4];
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const goToNextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
+    // const goToNextSlide = () => {
+    //     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    // };
 
-    const goToPrevSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
+    // const goToPrevSlide = () => {
+    //     setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    // };
 
     const goToPage = (pageNumber) => {
         setCurrentIndex(pageNumber);
     }
+
+    // console.log("rendered")
 
     useEffect(()=>{
         setTimeout(() => {
@@ -29,7 +31,11 @@ const Carousel = () => {
             else
                 setCurrentIndex(0);
         }, 3000);
-    }, [currentIndex]);
+    }, [currentIndex, images.length]);
+
+    useEffect(()=>{
+
+    },[]);
 
     return (
         <div className="text-center w-[100%]" id='carousel'>

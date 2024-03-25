@@ -92,7 +92,7 @@ export default function Footer() {
                 <div className="searches text-sm text-gray-500 leading-7">
                     {
                         popularSearches.map((item, id)=>(
-                            <span>{item} {id !== popularSearches.length-1 && '|'} </span>
+                            <span key={id}>{item} {id !== popularSearches.length-1 && '|'} </span>
                         ))
                     }
                 </div>

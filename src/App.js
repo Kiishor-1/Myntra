@@ -1,14 +1,19 @@
 import Navbar from './components/common/Navbar';
 import './App.css';
-import Footer from './components/common/Footer';
-import Carousel from './components/common/Carousel';
+import Home from './Pages/Home';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PageNotFound from './components/common/PageNotFound';
 function App() {
   return (
-    <div className="App relative">
-      <Navbar/>
-      <Carousel/>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <div className="App relative">
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='*' element={<PageNotFound />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

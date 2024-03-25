@@ -20,7 +20,7 @@ export default function ProfileOption() {
       <div className="">
         <h4 className='text-red-600'>Welcome</h4>
         <p className='font-normal'>To access accounts and manage orders</p>
-        <button className='px-3 py-2 my-4 border-2 rounded-md text-red-700 font-semibold hover:border-red-700'>Login/Signup</button>
+        <p className='w-[7rem] px-3 py-2 my-4 border-2 rounded-md text-red-700 font-semibold hover:border-red-700'>Login/Signup</p>
       </div>
       <hr />
       <ul className="leading-4 py-3">
