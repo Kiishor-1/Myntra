@@ -3,6 +3,8 @@ import './App.css';
 import Home from './Pages/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageNotFound from './components/common/PageNotFound';
+import Login from './Pages/Login';
+import VerifyEmail from './Pages/VerifyEmail';
 function App() {
   return (
     <BrowserRouter>
@@ -10,6 +12,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/verifyEmail' element={<VerifyEmail />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </div>

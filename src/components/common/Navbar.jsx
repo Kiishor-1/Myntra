@@ -8,12 +8,15 @@ import { fashionCategory } from '../../data/category';
 import CategoryOptions from './CategoryOptions';
 import ProfileOption from './ProfileOption';
 import Studio from './Studio';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
     return (
         <nav className="navbar relative shadow-md h-[5rem] flex rounded-sm justify-between px-12 items-center sticky top-0 bg-white z-1">
             <div className="logo-container flex py-4">
+                <Link to="/">
                 <img className=" w-[60px] h-[50px] rounded-full" src={Logo} alt='Logo' />
+                </Link>
             </div>
 
             <ul className="flex gap-8 my-5 text-sm font-bold  h-[100%]">
