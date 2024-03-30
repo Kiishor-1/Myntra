@@ -26,7 +26,7 @@
     overflow: hidden;
 }
 
-button {
+/* button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -38,13 +38,12 @@ button {
 
 button:first-child {
     left: 0;
-    /* z-index: 30; */
 }
 
 button:last-child {
     right: 0;
 
-}
+} */
 
 .pagination {
     /* position: absolute;
