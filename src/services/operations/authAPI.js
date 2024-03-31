@@ -1,6 +1,8 @@
 import toast from "react-hot-toast"
 import { apiConnector } from "../apiConnector"
-import { setLoading } from "../../Slices/authSlice"
+import { setLoading, setToken } from "../../Slices/authSlice"
+import { setUser } from "../../Slices/profileSlice"
+
 
 export function sendOtp(email, navigate) {
   return async (dispatch) => {
@@ -42,7 +44,16 @@ export function signUp(email, otp, navigate){
       if (!response.data.success) {
         throw new Error(response.data.message)
       }
-      toast.success("Signup Successful")
+      // toast.success("Signup Successful")
+      // navigate("/")
+      toast.success(response.data.message);
+      dispatch(setToken(response.data.token))
+      // const userImage = response.data?.user?.image
+      //   ? response.data.user.image
+      //   : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`
+      dispatch(setUser({ ...response.data.user, }))
+      localStorage.setItem("token", JSON.stringify(response.data.token))
+      localStorage.setItem("user", JSON.stringify(response.data.user))
       navigate("/")
     }catch(error){
       console.log(error);
@@ -51,5 +62,16 @@ export function signUp(email, otp, navigate){
     }
     dispatch(setLoading(false));
     toast.dismiss(toastId);
+  }
+}
+
+export function logout(navigate) {
+  return (dispatch) => {
+    dispatch(setToken(null))
+    dispatch(setUser(null))
+    localStorage.removeItem("token")
+    localStorage.removeItem("user")
+    toast.success("Logged Out")
+    navigate("/")
   }
 }
