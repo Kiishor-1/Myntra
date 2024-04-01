@@ -8,10 +8,13 @@ import { Toaster } from 'react-hot-toast';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import rootReducer from './reducer';
+import { initializeUser } from './services/operations/authAPI';
 
 const store = configureStore({
   reducer: rootReducer
 });
+
+store.dispatch(initializeUser());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

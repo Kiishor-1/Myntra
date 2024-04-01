@@ -60,9 +60,23 @@ export function signUp(email, otp, navigate){
       toast.error("SingUp Failed");
       navigate("/login");
     }
-    dispatch(setLoading(false));
-    toast.dismiss(toastId);
+    finally {
+      dispatch(setLoading(false));
+      toast.dismiss(toastId);
+    }
+    // toast.dismiss(toastId);
   }
+}
+
+export function initializeUser() {
+  return (dispatch) => {
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (token && user) {
+      dispatch(setToken(token));
+      dispatch(setUser(user));
+    }
+  };
 }
 
 export function logout(navigate) {
