@@ -22,12 +22,12 @@ export default function Navbar() {
             <ul className="flex gap-8 my-5 text-sm font-bold  h-[100%]">
                 {
                     fashionCategory.map((category, id)=>(
-                        <li className={`hover:text-red-500 group  hover:border-b-[0.2rem] hover:border-[${category.color}] h-[100%] flex items-center cursor-pointer text-[13px] font-bold`} key={id}>
+                        <Link to={`/${category.item}`} className={`hover:text-red-500 group  hover:border-b-[0.2rem] hover:border-[${category.color}] h-[100%] flex items-center cursor-pointer text-[13px] font-bold`} key={id}>
                             {category.item.toUpperCase()}{category.item === 'studio' && <sup className="text-red-500">NEW</sup>}
                             {
                                 category.item === 'studio' ? <Studio/>:<CategoryOptions category={category}/>
                             }
-                        </li>
+                        </Link>
                     ))
                 }
             </ul>

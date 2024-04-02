@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function PageNotFound() {
   return (
-    <div className='my-[1.5rem] text-[1.7rem] h-screen w-screen font-semibold text-center'>
+    <div className='py-12 text-[1.7rem] h-[calc(100vh-5rem)] w-screen font-semibold text-center'>
       Page Not Found
     </div>
   )
