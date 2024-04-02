@@ -19,7 +19,6 @@ export default function VerifyEmail() {
 
     const { email } = signupData || {};
 
-
     const handleOTPAandSignUp = (e) => {
         e.preventDefault();
         dispatch(signUp(email, otp, navigate));
