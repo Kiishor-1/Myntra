@@ -12,12 +12,13 @@ export default function VerifyEmail() {
     const { loading, signupData } = useSelector((state) => state.auth);
     useEffect(() => {
         // Only allow access of this route when user has filled the signup form
-        if (!signupData) {
+        if(!signupData) {
             navigate("/login");
         }
-    }, []);
+    }, [navigate, signupData]);
 
-    const { email } = signupData;
+    const { email } = signupData || {};
+
 
     const handleOTPAandSignUp = (e) => {
         e.preventDefault();

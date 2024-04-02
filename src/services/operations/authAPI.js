@@ -57,7 +57,7 @@ export function signUp(email, otp, navigate){
       navigate("/")
     }catch(error){
       console.log(error);
-      toast.error("SingUp Failed");
+      toast.error(error.response.data.message);
       navigate("/login");
     }
     finally {

@@ -36,7 +36,8 @@ export default function LoginOrSignup() {
 
     // Setting signup data to state
     // To be used after otp verification
-    dispatch(setSignupData(signupData))
+    // dispatch(setSignupData(signupData))
+    dispatch(setSignupData(formData));
     // Send OTP to user for verification
     dispatch(sendOtp(formData.email, navigate))
 
