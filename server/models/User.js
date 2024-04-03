@@ -1,29 +1,12 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
-        type: String,
-        required: true
-    },
     email: {
         type: String,
         required: true
     },
-    password: {
-        type: String,
-        required: true,
-    },
     token:{
         type:String,
-    },
-    accountType:{
-        type:String,
-        enaum:['Customer','Merchant','Admin'],
-        required:true,
     },
     itemsInCart:[
         {
@@ -31,9 +14,6 @@ const userSchema = new mongoose.Schema({
             ref:"Product",
         },
     ],
-    resetPasswordExpires:{
-        type:Date,
-    },
     active: {
         type: Boolean,
         default: true,
@@ -41,11 +21,6 @@ const userSchema = new mongoose.Schema({
     approved: {
         type: Boolean,
         default: true,
-    },
-    additionalDetails: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: "Profile",
     },
 });
 
