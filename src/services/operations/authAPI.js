@@ -3,13 +3,23 @@ import { apiConnector } from "../apiConnector"
 import { setLoading, setToken } from "../../Slices/authSlice"
 import { setUser } from "../../Slices/profileSlice"
 
+import { authendpoints } from "../apis"
+
+const {
+  SENDOTP_API,
+  SIGNUP_API,
+  LOGIN_API,
+  RESETPASSTOKEN_API,
+  RESETPASSWORD_API,
+} = authendpoints;
+
 
 export function sendOtp(email, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
     try {
-      const response = await apiConnector("POST", "http://localhost:4000/api/v1/auth/sendotp", {
+      const response = await apiConnector("POST", SENDOTP_API, {
         email,
         checkUserPresent: true,
       })
@@ -37,7 +47,7 @@ export function signUp(email, otp, navigate){
     const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
     try{
-      const response = await apiConnector("POST", "http://localhost:4000/api/v1/auth/signup",{
+      const response = await apiConnector("POST", SIGNUP_API,{
         email, otp
       });
       console.log("Signup response", response);

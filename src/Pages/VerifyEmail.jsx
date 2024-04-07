@@ -12,6 +12,7 @@ export default function VerifyEmail() {
     const { loading, signupData } = useSelector((state) => state.auth);
     useEffect(() => {
         // Only allow access of this route when user has filled the signup form
+        console.log("captured")
         if(!signupData) {
             navigate("/login");
         }
