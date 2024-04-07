@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
 	cors({
-		origin:"https://myntra-blue-five.vercel.app/",
+		origin:process.env.FRONT_END,
 		credentials:true,
 	})
 )
